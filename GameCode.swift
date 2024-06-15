@@ -1,6 +1,6 @@
 import Foundation
 
-let circle = OvalShape(width: 150, height: 150)
+let circle = OvalShape(width: 50, height: 50)
 let barrierWidth = 300.0
 let barrierHeight = 25.0
 
@@ -35,4 +35,10 @@ func setup() {
     
     funnel.position = Point(x: 200, y: scene.height-25)
     scene.add(funnel)
+    
+    funnel.onTapped = dropBall //this is not call the function, just callback
+}
+
+func dropBall() {
+    circle.position = funnel.position
 }
