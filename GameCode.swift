@@ -26,17 +26,18 @@ func setup() {
     circle.position = Point(x: 150, y: 350)
     scene.add(circle)
     circle.hasPhysics = true
+    circle.fillColor = .purple
     
     barrier.position = Point(x: 100, y: 200)
     scene.add(barrier)
     barrier.hasPhysics = true
-    
     barrier.isImmobile = true
+    barrier.fillColor = .blue
     
     funnel.position = Point(x: 200, y: scene.height-25)
     scene.add(funnel)
-    
     funnel.onTapped = dropBall //this is not call the function, just callback
+    funnel.fillColor = .green
 }
 
 func dropBall() {
