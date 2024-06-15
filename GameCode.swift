@@ -21,4 +21,6 @@ func setup() {
     barrier.position = Point(x: 100, y: 200)
     scene.add(barrier)
     barrier.hasPhysics = true
+    
+    barrier.isImmobile = true
 }
