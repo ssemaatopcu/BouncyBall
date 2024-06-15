@@ -1,6 +1,6 @@
 import Foundation
 
-let circle = OvalShape(width: 50, height: 50)
+let ball = OvalShape(width: 50, height: 50)
 let barrierWidth = 300.0
 let barrierHeight = 25.0
 
@@ -22,24 +22,36 @@ Point(x: 20, y: 0)
 
 let funnel = PolygonShape(points: funnelPoints)
 
-func setup() {
-    circle.position = Point(x: 150, y: 350)
-    scene.add(circle)
-    circle.hasPhysics = true
-    circle.fillColor = .purple
-    
+fileprivate func setupBall() {
+    ball.position = Point(x: 150, y: 350)
+    scene.add(ball)
+    ball.hasPhysics = true
+    ball.fillColor = .purple
+}
+
+fileprivate func setupBarrier() {
     barrier.position = Point(x: 100, y: 200)
     scene.add(barrier)
     barrier.hasPhysics = true
     barrier.isImmobile = true
     barrier.fillColor = .blue
-    
+}
+
+fileprivate func setupFunnel() {
     funnel.position = Point(x: 200, y: scene.height-25)
     scene.add(funnel)
     funnel.onTapped = dropBall //this is not call the function, just callback
     funnel.fillColor = .green
 }
 
+func setup() {
+    setupBall()
+    
+    setupBarrier()
+    
+    setupFunnel()
+}
+
 func dropBall() {
-    circle.position = funnel.position
+    ball.position = funnel.position
 }
