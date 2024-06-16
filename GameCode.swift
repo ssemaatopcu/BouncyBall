@@ -73,6 +73,7 @@ func setup() {
 
 func dropBall() {
     ball.position = funnel.position
+    ball.stopAllMotion()
 }
 
 func ballCollided(with otherShape: Shape) {
