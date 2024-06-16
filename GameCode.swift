@@ -39,6 +39,7 @@ fileprivate func setupBall() {
     ball.isDraggable = false
     scene.trackShape(ball)
     ball.onExitedScene = ballExitedScene
+    ball.onTapped = resetGame
     scene.add(ball)
 }
 
@@ -74,6 +75,7 @@ func setup() {
     setupBarrier()
     setupFunnel()
     setupTarget()
+    resetGame()
 }
 
 func dropBall() {
@@ -91,3 +93,6 @@ func ballExitedScene() {
     barrier.isDraggable = true
 }
 
+func resetGame() {
+    ball.position = Point(x: 0, y: -80)
+}
