@@ -43,7 +43,7 @@ fileprivate func addBarrier(at position: Point, height: Double, width: Double, a
     barrier.hasPhysics = true
     barrier.isImmobile = true
     barrier.fillColor = .blue
-    barrier.isDraggable = false
+    barrier.isDraggable = true
     barrier.angle = angle
     scene.add(barrier)
 }
@@ -73,15 +73,20 @@ func addTarget(at position: Point) {
     target.isImpermeable = true
     target.fillColor = .yellow
     target.name = "target"
-    // target.isDraggable = false
+    //target.isDraggable = false
     scene.add(target)
 }
 
 func setup() {
     setupBall()
-    addBarrier(at: Point(x: 200, y: 150), height: 80, width: 25, angle: 0.1)
+    addBarrier(at: Point(x: 175, y: 100), height: 25, width: 80, angle: 0.1)
+    addBarrier(at: Point(x: 100, y: 150), height: 15, width: 30, angle: -0.2)
+    addBarrier(at: Point(x: 325, y: 150), height: 25, width: 100, angle: 0.3)
     setupFunnel()
-    addTarget(at: Point(x: 150, y: 400))
+    addTarget(at: Point(x: 94, y: 175))
+    addTarget(at: Point(x: 269, y: 453))
+    addTarget(at: Point(x: 184, y: 563))
+    addTarget(at: Point(x: 238, y: 624))
     resetGame()
     scene.onShapeMoved = printPosition(of:)
 }
