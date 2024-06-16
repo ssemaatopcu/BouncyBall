@@ -60,6 +60,7 @@ func setupTarget() {
     target.hasPhysics = true
     target.isImpermeable = true
     target.fillColor = .yellow
+    target.name = "target"
     scene.add(target)
 }
 
@@ -75,6 +76,7 @@ func dropBall() {
 }
 
 func ballCollided(with otherShape: Shape) {
+    if otherShape.name != "target" {return}
     otherShape.fillColor = .red
 }
 
