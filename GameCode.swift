@@ -98,6 +98,10 @@ func dropBall() {
     for barrier in barriers {
         barrier.isDraggable = false
     }
+    
+    for target in targets {
+        target.fillColor = .yellow
+    }
 }
 
 func ballCollided(with otherShape: Shape) {
@@ -106,6 +110,17 @@ func ballCollided(with otherShape: Shape) {
 }
 
 func ballExitedScene() {
+    var hitTargets = 0
+    for target in targets {
+        if target.fillColor == .red {
+            hitTargets += 1
+        }
+    }
+    
+    if hitTargets == targets.count{
+        scene.presentAlert(text: "You Won!", completion: alertDismissed)
+    }
+    
     for barrier in barriers {
         barrier.isDraggable = true
     }
@@ -117,4 +132,8 @@ func resetGame() {
 
 func printPosition(of shape: Shape) {
     print(shape.position)
+}
+
+func alertDismissed() {
+    
 }
