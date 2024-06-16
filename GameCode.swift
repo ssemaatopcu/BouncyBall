@@ -35,6 +35,7 @@ fileprivate func setupBall() {
     ball.position = Point(x: 150, y: 350)
     ball.hasPhysics = true
     ball.fillColor = .purple
+    ball.onCollision = ballCollided(with:)
     scene.add(ball)
 }
 
@@ -71,5 +72,9 @@ func setup() {
 
 func dropBall() {
     ball.position = funnel.position
+}
+
+func ballCollided(with otherShape: Shape) {
+    otherShape.fillColor = .red
 }
 
