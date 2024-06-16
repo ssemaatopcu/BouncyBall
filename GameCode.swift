@@ -69,6 +69,7 @@ func setupTarget() {
     target.isImpermeable = true
     target.fillColor = .yellow
     target.name = "target"
+    // target.isDraggable = false
     scene.add(target)
 }
 
@@ -78,6 +79,7 @@ func setup() {
     setupFunnel()
     setupTarget()
     resetGame()
+    scene.onShapeMoved = printPosition(of:)
 }
 
 func dropBall() {
@@ -97,4 +99,8 @@ func ballExitedScene() {
 
 func resetGame() {
     ball.position = Point(x: 0, y: -80)
+}
+
+func printPosition(of shape: Shape) {
+    print(shape.position)
 }
