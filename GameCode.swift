@@ -40,6 +40,7 @@ fileprivate func setupBall() {
     scene.trackShape(ball)
     ball.onExitedScene = ballExitedScene
     ball.onTapped = resetGame
+    ball.bounciness = 0.6 //from 0 to 1
     scene.add(ball)
 }
 
@@ -49,6 +50,7 @@ fileprivate func setupBarrier() {
     barrier.isImmobile = true
     barrier.fillColor = .blue
     barrier.isDraggable = false
+    barrier.angle = 0.1 //from 0 to 1
     scene.add(barrier)
 }
 
