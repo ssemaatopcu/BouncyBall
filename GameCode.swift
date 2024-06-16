@@ -37,6 +37,8 @@ fileprivate func setupBall() {
     ball.fillColor = .purple
     ball.onCollision = ballCollided(with:)
     ball.isDraggable = false
+    scene.trackShape(ball)
+    ball.onExitedScene = ballExitedScene
     scene.add(ball)
 }
 
@@ -77,10 +79,15 @@ func setup() {
 func dropBall() {
     ball.position = funnel.position
     ball.stopAllMotion()
+    barrier.isDraggable = false
 }
 
 func ballCollided(with otherShape: Shape) {
     if otherShape.name != "target" {return}
     otherShape.fillColor = .red
+}
+
+func ballExitedScene() {
+    barrier.isDraggable = true
 }
 
