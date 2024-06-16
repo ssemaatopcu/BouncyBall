@@ -36,6 +36,7 @@ fileprivate func setupBall() {
     ball.hasPhysics = true
     ball.fillColor = .purple
     ball.onCollision = ballCollided(with:)
+    ball.isDraggable = false
     scene.add(ball)
 }
 
@@ -44,6 +45,7 @@ fileprivate func setupBarrier() {
     barrier.hasPhysics = true
     barrier.isImmobile = true
     barrier.fillColor = .blue
+    barrier.isDraggable = false
     scene.add(barrier)
 }
 
@@ -51,6 +53,7 @@ fileprivate func setupFunnel() {
     funnel.position = Point(x: 200, y: scene.height-25)
     funnel.onTapped = dropBall //this is not call the function, just callback
     funnel.fillColor = .lightGray
+    funnel.isDraggable = false
     scene.add(funnel)
 }
 
